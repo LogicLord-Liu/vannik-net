@@ -1,16 +1,16 @@
 ---
-
+import Home from "../components/home.jsx";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Astro + React + Sass 示例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body
+    style="margin:0; background:#e0e7ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+  >
+    <Home client:load />
+  </body>
 </html>

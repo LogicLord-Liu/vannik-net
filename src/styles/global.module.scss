@@ -1,0 +1,22 @@
+/* 全局样式，用 CSS Modules 写法 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:global(html),
+:global(body) {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.5;
+}
+
+:global(a) {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+:global(a:hover) {
+  text-decoration: underline;
+}

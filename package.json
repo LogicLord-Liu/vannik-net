@@ -10,6 +10,12 @@
     "tw:init": "tailwindcss init -p"
   },
   "dependencies": {
-    "astro": "^5.11.0"
+    "@astrojs/react": "^4.3.0",
+    "astro": "^5.11.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
   }
 }
