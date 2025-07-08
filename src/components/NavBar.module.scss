@@ -1,0 +1,39 @@
+/* src/components/NavBar.module.scss */
+
+.nav {
+    background-color: #2563eb;
+    padding: 1rem 0;
+    color: white;
+}
+
+.navContainer {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navLinks {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navLink {
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: #93c5fd;
+}

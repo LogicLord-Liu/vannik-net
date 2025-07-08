@@ -1,16 +1,13 @@
 ---
 import Home from "../components/home.jsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Astro + React + Sass 示例</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+<BaseLayout>
+  <section class="container" style="padding: 2rem 0;">
   <body
     style="margin:0; background:#e0e7ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
   >
     <Home client:load />
   </body>
-</html>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import NavBar from "../components/NavBar.jsx";
+import "../styles/global.scss";
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astro + React + Sass 全局布局</title>
+    <!-- 引入全局样式 -->
+    <link rel="stylesheet" href="/src/styles/global.scss" type="text/css" />
+  </head>
+  <body>
+    <NavBar client:load />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
