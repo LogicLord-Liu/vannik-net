@@ -1,5 +1,6 @@
 ---
 import NavBar from "../components/NavBar.jsx";
+import Loader from "../components/Loader.jsx";
 import "../styles/global.scss";
 ---
 
@@ -10,8 +11,18 @@ import "../styles/global.scss";
     <title>Astro + React + Sass 全局布局</title>
     <!-- 引入全局样式 -->
     <link rel="stylesheet" href="/src/styles/global.scss" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <Loader client:load />
+
+    <script type="module" src="/src/scripts/loader-activate.js"></script>
+    
     <NavBar client:load />
     <main>
       <slot />

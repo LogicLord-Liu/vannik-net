@@ -1,22 +1,79 @@
-/* 全局样式，用 CSS Modules 写法 */
+// src/styles/global.scss
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+// 🎨 1. 定义主题颜色变量
+$primary: #f472b6;
+$accent: #ec4899;
+$background: #fffafc;
+$text: #5c5c5c;
+$font-sans: 'Poppins',
+'Noto Sans SC',
+'Helvetica Neue',
+sans-serif;
 
-:global(html),
-:global(body) {
+// 📦 2. 引入 Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+// 🌐 3. CSS Reset
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #fff;
-  color: #222;
-  line-height: 1.5;
+  box-sizing: border-box;
 }
 
-:global(a) {
-  color: #3b82f6;
+html {
+  font-family: $font-sans;
+  background-color: $background;
+  color: $text;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+// 🔗 4. 链接样式
+a {
+  color: $accent;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-:global(a:hover) {
-  text-decoration: underline;
+a:hover {
+  color: darken($accent, 10%);
+}
+
+// 📦 5. 容器和按钮
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: $primary;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darken($primary, 10%);
+}
+
+// 📰 6. 文字标题
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Poppins', sans-serif;
+  color: $accent;
+  font-weight: 700;
 }

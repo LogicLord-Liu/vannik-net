@@ -1,9 +1,6 @@
-/* src/components/NavBar.module.scss */
-
 .nav {
-    background-color: #2563eb;
+    background-color: #fce7f3;
     padding: 1rem 0;
-    color: white;
 }
 
 .navContainer {
@@ -11,29 +8,28 @@
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
+    font-size: 1.75rem;
     font-weight: 700;
-    font-size: 1.5rem;
-    cursor: pointer;
+    color: #ec4899;
 }
 
 .navLinks {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
 .navLink {
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.2s ease;
+    color: #d94690;
+    font-weight: 600;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .navLink:hover {
-    color: #93c5fd;
+    color: #be185d;
 }
