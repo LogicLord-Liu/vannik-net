@@ -1,0 +1,35 @@
+---
+import BlogCard from "../components/BlogCard.jsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// 使用 import.meta.glob 获取所有 Markdown 文章
+const modules = import.meta.glob("./posts/**/*.md", { eager: true });
+
+// 转换为数组并提取 frontmatter
+const posts = Object.entries(modules)
+  .map(([path, mod]) => ({
+    ...mod.frontmatter,
+    url: path.replace("./", "/blog/").replace(/\\.mdx?$/, ""), // 生成链接
+    dateObj: new Date(mod.frontmatter.date),
+  }))
+  .filter((post) => !isNaN(post.dateObj)) // 过滤非法日期
+  .sort((a, b) => b.dateObj - a.dateObj); // 最新的排最前
+---
+
+<BaseLayout title="博客列表">
+  <section class="blog-list">
+    {posts.map((post) => <BlogCard post={post} />)}
+  </section>
+
+</BaseLayout>
+
+<style>
+  .blog-list {
+    max-width: 1200px;
+    margin: 4rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+</style>

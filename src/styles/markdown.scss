@@ -1,0 +1,148 @@
+/* markdown.scss - 用于 Markdown 内容渲染样式 */
+
+.markdown-content {
+    font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+    color: #333;
+    line-height: 1.75;
+    font-size: 1.1rem;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+    /* 暗模式 */
+    .dark & {
+        background-color: #1f1f1f;
+        color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #ec4899;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+
+        .dark & {
+            color: #f9a8d4;
+        }
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    p {
+        margin-bottom: 1.25rem;
+    }
+
+    a {
+        color: #db2777;
+        text-decoration: underline;
+
+        &:hover {
+            color: #be185d;
+        }
+    }
+
+    blockquote {
+        border-left: 4px solid #ec4899;
+        padding-left: 1rem;
+        color: #6b7280;
+        font-style: italic;
+        margin: 1.5rem 0;
+
+        .dark & {
+            border-color: #f472b6;
+            color: #cbd5e1;
+        }
+    }
+
+    pre {
+        background-color: #f3f4f6;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 2rem 0;
+
+        .dark & {
+            background-color: #27272a;
+        }
+    }
+
+    code {
+        background-color: #f3f4f6;
+        padding: 0.2rem 0.4rem;
+        border-radius: 6px;
+        font-size: 0.95rem;
+
+        .dark & {
+            background-color: #27272a;
+        }
+    }
+
+    ul,
+    ol {
+        margin-left: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f9a8d4;
+            color: white;
+
+            .dark & {
+                background-color: #ec4899;
+            }
+        }
+
+        .dark & {
+            border-color: #444;
+            color: #ccc;
+        }
+    }
+}

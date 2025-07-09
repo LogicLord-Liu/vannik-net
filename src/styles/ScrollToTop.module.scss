@@ -1,0 +1,41 @@
+.scrollButton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    background-color: #f9a8d4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    box-shadow: 0 6px 18px rgba(236, 72, 153, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px); // 初始往下偏移
+}
+
+/* 显示时 */
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* 悬停 */
+.scrollButton:hover {
+    background-color: #f472b6;
+    transform: translateY(-2px);
+}
+
+/* 暗模式 */
+.dark .scrollButton {
+    background-color: #ec4899;
+
+    &:hover {
+        background-color: #be185d;
+    }
+}

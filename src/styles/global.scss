@@ -5,13 +5,15 @@ $primary: #f472b6;
 $accent: #ec4899;
 $background: #fffafc;
 $text: #5c5c5c;
-$font-sans: 'Poppins',
+$font-sans: "Libre Baskerville",
 'Noto Sans SC',
 'Helvetica Neue',
 sans-serif;
+$font-weight: 700;
+$font-style: normal;
 
 // 📦 2. 引入 Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 // 🌐 3. CSS Reset
 *,
@@ -24,6 +26,8 @@ sans-serif;
 
 html {
   font-family: $font-sans;
+  font-weight: $font-weight;
+  font-style: $font-style;
   background-color: $background;
   color: $text;
   scroll-behavior: smooth;
@@ -76,4 +80,80 @@ h5 {
   font-family: 'Poppins', sans-serif;
   color: $accent;
   font-weight: 700;
+}
+
+html {
+  font-family: 'Poppins', 'Libre Baskerville', sans-serif;
+  font-weight: 500;
+  color: #333;
+
+  &.dark {
+    background-color: #1f1f1f;
+    color: #fce7f3;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf2f8; // 更浅的背景
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f9a8d4; // 柔和浅粉色
+  border-radius: 10px;
+  border: 2px solid #fdf2f8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f472b6; // 稍深一点点
+}
+
+/* 暗模式 */
+.dark ::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #f9a8d4;
+  border: 2px solid #2a2a2a;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #ec4899;
+}
+
+.blog-list {
+  max-width: 1200px;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+}
+
+.blog-list>* {
+  @media (max-width: 768px) {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    margin-right: 1rem;
+  }
 }
