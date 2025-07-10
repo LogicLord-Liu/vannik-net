@@ -1,7 +1,7 @@
 /* markdown.scss - 用于 Markdown 内容渲染样式 */
 
 .markdown-content {
-    font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+    font-family: 'Poppins', 'Libre Baskerville', sans-serif;
     color: #333;
     line-height: 1.75;
     font-size: 1.1rem;
@@ -114,10 +114,81 @@
     }
 
     img {
+        display: block;
         max-width: 100%;
-        border-radius: 8px;
-        margin: 1.5rem 0;
+        width: 100%;
+        height: auto;
+        margin: 1.5rem auto;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        object-fit: contain;
+        cursor: zoom-in;
+
+        &:hover {
+            transform: scale(1.015);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .dark & {
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+        }
     }
+
+    /* 图文混排容器 */
+    figure.image-left,
+    figure.image-right {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+    }
+
+    figure.image-left img,
+    figure.image-right img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 0.75rem;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    figure.image-left {
+        flex-direction: row;
+    }
+
+    figure.image-right {
+        flex-direction: row-reverse;
+    }
+
+    figure figcaption {
+        flex: 1;
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+        margin-top: 0.5rem;
+    }
+
+    .dark figure figcaption {
+        color: #aaa;
+    }
+
+    /* 响应式支持 */
+    @media (max-width: 768px) {
+
+        figure.image-left,
+        figure.image-right {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        figure figcaption {
+            text-align: center;
+        }
+    }
+
 
     table {
         width: 100%;
@@ -145,4 +216,61 @@
             color: #ccc;
         }
     }
+}
+
+.post-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.post-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .post-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #111;
+        margin-bottom: 1rem;
+    }
+
+    .post-meta {
+        font-size: 0.95rem;
+        color: #666;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .post-tags {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        .tag {
+            background: #f9a8d4;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            color: white;
+
+            .dark & {
+                background-color: #ec4899;
+            }
+        }
+    }
+}
+
+.cover {
+    display: block;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }

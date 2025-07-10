@@ -157,3 +157,27 @@ h3 {
     margin-right: 1rem;
   }
 }
+
+/* 全局选中样式 */
+::selection {
+  background-color: #f9a8d4;
+  /* 粉红色背景（可替换成你网站主题色） */
+  color: #ffffff;
+  /* 选中文字颜色 */
+}
+
+/* 暗模式下选中样式 */
+.dark ::selection {
+  background-color: #ec4899;
+  /* 深色主题下更鲜艳一点 */
+  color: #ffffff;
+}
+
+a::selection {
+  background-color: #f472b6;
+  color: #fff;
+}
+
+.dark a::selection {
+  background-color: #db2777;
+}

@@ -6,21 +6,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const modules = import.meta.glob("./posts/**/*.md", { eager: true });
 
 // 转换为数组并提取 frontmatter
-const posts = Object.entries(modules)
-  .map(([path, mod]) => ({
+const posts = Object.values(modules)
+  .map((mod) => ({
     ...mod.frontmatter,
-    url: path.replace("./", "/blog/").replace(/\\.mdx?$/, ""), // 生成链接
+    url: mod.url, // ✅ 自动生成正确的路径，如 /posts/explame/
     dateObj: new Date(mod.frontmatter.date),
   }))
-  .filter((post) => !isNaN(post.dateObj)) // 过滤非法日期
-  .sort((a, b) => b.dateObj - a.dateObj); // 最新的排最前
+  .filter((post) => !isNaN(post.dateObj))
+  .sort((a, b) => b.dateObj - a.dateObj);
 ---
 
 <BaseLayout title="博客列表">
   <section class="blog-list">
     {posts.map((post) => <BlogCard post={post} />)}
   </section>
-
 </BaseLayout>
 
 <style>
