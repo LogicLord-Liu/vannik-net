@@ -25,3 +25,17 @@ readingTime: 3分钟阅读
 Hello World
 
  [YouTube](https://www.youtube.com/)
+
+```csharp
+private void Main()
+{
+  Console.WriteLine("Hello World !");
+}
+```
+
+```json
+{
+    "description": "The getfilechanges skill gets changes filtered for a specific file.\nYou MUST NOT use this to get changes for an entire repo or branch.\nYou MUST NOT use this to get a diff.\nIf the user is on a blob url extract parameters from the url http://github.localhost/<repo>/blob/<ref>/<path>.",
+    "name": "getfilechanges",
+    }
+```

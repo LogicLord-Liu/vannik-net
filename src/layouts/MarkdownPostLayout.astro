@@ -60,5 +60,30 @@ const {
         scrollOffset: 0,
       });
     </script>
+    <script>
+      // 复制按钮逻辑
+      document.addEventListener("DOMContentLoaded", () => {
+        const blocks = document.querySelectorAll("pre");
+
+        blocks.forEach((block) => {
+          const button = document.createElement("button");
+          button.className = "copy-btn";
+          button.innerText = "📋 Copy";
+
+          button.addEventListener("click", async () => {
+            const code = block.innerText;
+            try {
+              await navigator.clipboard.writeText(code);
+              button.innerText = "✅ Copied !";
+              setTimeout(() => (button.innerText = "📋 Copy"), 2000);
+            } catch (err) {
+              button.innerText = "❌ Error";
+            }
+          });
+
+          block.appendChild(button);
+        });
+      });
+    </script>
   </body>
 </html>
