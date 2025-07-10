@@ -65,7 +65,7 @@
 
     a {
         color: #db2777;
-        text-decoration: underline;
+        text-decoration: none;
 
         &:hover {
             color: #be185d;
@@ -149,7 +149,7 @@
     pre {
         position: relative; // 关键：让 copy 按钮定位正确
     }
-    
+
     /* 高亮代码中的关键字（如通过 rehype-prism 加亮后） */
     .token {
         background-color: transparent !important;
@@ -365,4 +365,38 @@ a::selection {
 
 .dark a::selection {
     background-color: #db2777;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fdf2f8; // 更浅的背景
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f9a8d4; // 柔和浅粉色
+    border-radius: 10px;
+    border: 2px solid #fdf2f8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f472b6; // 稍深一点点
+}
+
+/* 暗模式 */
+.dark ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #f9a8d4;
+    border: 2px solid #2a2a2a;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #ec4899;
 }
