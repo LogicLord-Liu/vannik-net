@@ -3,6 +3,7 @@
 
 .markdown-content {
     font-family: 'Libre Baskerville', 'Poppins', 'Songti SC', sans-serif;
+    font-weight: 900;
     color: #333;
     line-height: 1.75;
     font-size: 1.1rem;
@@ -85,95 +86,79 @@
         }
     }
 
-    pre {
-        background-color: #f3f4f6;
-        color: #111;
-        padding: 1.25rem;
-        border-radius: 0.75rem;
-        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        overflow-x: auto;
+    .code-block-wrapper {
         position: relative;
         margin: 2rem 0;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 
-        .dark & {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.05);
+        pre {
+            max-height: 60vh;
+            overflow-y: auto;
+            overflow-x: auto;
+            overflow-x: auto;
+            margin: 0;
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-    }
 
-    code {
-        background-color: #f3f4f6;
-        padding: 0.2rem 0.4rem;
-        border-radius: 0.375rem;
-        font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        font-size: 0.95rem;
-
-        .dark & {
-            background-color: #27272a;
-            color: #f8f8f2;
+        pre.collapsed {
+            max-height: 160px;
+            overflow: hidden;
         }
-    }
-
-    .copy-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        background-color: #f9a8d4; // 粉色背景（浅）
-        color: #fff;
-        border: none;
-        border-radius: 9999px; // 圆角胶囊形状
-        cursor: pointer;
-        opacity: 0.9;
-        box-shadow: 0 4px 12px rgba(249, 168, 212, 0.3); // 粉色阴影
-        transition: all 0.3s ease;
-        z-index: 10;
 
         &:hover {
-            opacity: 1;
-            background-color: #f472b6; // hover 更深一点的粉
-            box-shadow: 0 6px 16px rgba(244, 114, 182, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         }
 
-        &:active {
-            transform: scale(0.98);
+        .copy-btn,
+        .toggle-btn {
+            position: absolute;
+            top: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            z-index: 10;
+
+            &:hover {
+                opacity: 1;
+                background-color: #f472b6;
+                box-shadow: 0 6px 16px rgba(244, 114, 182, 0.4);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+
+        .copy-btn {
+            right: 10px;
+            background-color: #f9a8d4;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(249, 168, 212, 0.3);
+
+            &:hover {
+                opacity: 1;
+                background-color: #f472b6;
+            }
+        }
+
+        .toggle-btn {
+            right: 100px;
+            background-color: #ddd;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+            &:hover {
+                background-color: #bbb;
+            }
         }
     }
-
-    pre {
-        position: relative; // 关键：让 copy 按钮定位正确
-    }
-
-    /* 高亮代码中的关键字（如通过 rehype-prism 加亮后） */
-    .token {
-        background-color: transparent !important;
-    }
-
-    .token.comment,
-    .token.prolog,
-    .token.doctype,
-    .token.cdata {
-        color: #999;
-    }
-
-    .token.keyword {
-        color: #c678dd;
-    }
-
-    .token.string {
-        color: #98c379;
-    }
-
-    .token.function {
-        color: #61afef;
-    }
-
 
     ul,
     ol {
@@ -203,7 +188,6 @@
         }
     }
 
-    /* 图文混排容器 */
     figure.image-left,
     figure.image-right {
         display: flex;
@@ -254,6 +238,12 @@
 
         figure figcaption {
             text-align: center;
+        }
+
+        pre {
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+            max-height: 40vh;
         }
     }
 

@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    title: "个人博客",
+    description: "基于 Astro 和 React 构建的响应式博客，支持多语言和暗黑模式。",
+    techs: ["astro", "react", "tailwindcss"],
+    link: "https://example.com/blog",
+  },
+  {
+    title: "任务管理器",
+    description: "一个简洁的待办事项 Web 应用，支持任务分类和优先级排序。",
+    techs: ["vuejs", "sass", "firebase"],
+    link: "https://example.com/todo",
+  },
+  {
+    title: "音乐播放器",
+    description: "支持在线搜索和播放免费歌曲，带歌词显示和播放列表管理。",
+    techs: ["react", "nodejs", "mongodb"],
+    link: "https://example.com/music",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Document</title>
+    <style lang="scss">
+      .projects-container {
+        max-width: 900px;
+        margin: 2rem auto 4rem;
+        padding: 0 1rem;
+        color: #3a1a24; // 深淡粉色文字
+        font-family: "Poppins", sans-serif;
+      }
+
+      .projects-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #d66a85; // 主色粉
+        font-weight: 700;
+      }
+
+      .projects-list {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .project-card {
+        background: #ffe9f1; // 淡粉色背景
+        border: 1.5px solid #f0a6bf;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 8px rgb(214 106 133 / 0.2);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 20px rgb(214 106 133 / 0.4);
+        }
+
+        h2 {
+          margin: 0 0 0.75rem;
+          font-weight: 700;
+          color: #b84263;
+        }
+
+        p {
+          flex-grow: 1;
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          color: #7d4a5f;
+        }
+
+        .tech-icons {
+          margin-bottom: 1rem;
+          i {
+            font-size: 1.8rem;
+            margin-right: 0.75rem;
+            vertical-align: middle;
+          }
+        }
+
+        .btn-link {
+          display: inline-block;
+          text-align: center;
+          padding: 0.5rem 1.2rem;
+          background-color: #d66a85;
+          color: white;
+          border-radius: 20px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #b84263;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <BaseLayout />
+    <section class="projects-container">
+      <h1 class="projects-title">我的项目</h1>
+      <div class="projects-list">
+        {
+          projects.map((project) => (
+            <article class="project-card" key={project.title}>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <div class="tech-icons">
+                {project.techs.map((tech) => (
+                  <i
+                    key={tech}
+                    class={`devicon-${tech}-plain colored`}
+                    title={tech}
+                    aria-label={tech}
+                  />
+                ))}
+              </div>
+              <a
+                class="btn-link"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                查看项目
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </body>
+</html>

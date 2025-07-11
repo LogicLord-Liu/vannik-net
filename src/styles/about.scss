@@ -1,0 +1,301 @@
+main {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 1rem;
+}
+
+.about-container {
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 2rem;
+    transform: translateX(-1%);
+    padding-bottom: 6rem;
+    letter-spacing: 0.04em;
+    word-spacing: 0.1em;
+    line-height: 1.8;
+}
+
+.about-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    font-family: 'Libre Baskerville', serif;
+    color: #ec4899;
+    letter-spacing: 0.05em; // ✅ 增加标题字距
+}
+
+.about-container h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    font-family: 'Libre Baskerville', serif;
+    color: #d977aa;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+.about-container p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    color: #444;
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 0.035em; // ✅ 字符间距略增
+    word-spacing: 0.08em; // ✅ 英文单词间距
+}
+
+.about-container .highlight {
+    color: #f9a8d4;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.coords {
+    position: relative;
+    margin-top: 3rem;
+    background: #f9a8d4;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(249, 168, 212, 0.3);
+    width: fit-content;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.dark .coords {
+    background-color: #ec4899;
+}
+
+.coords .map-popup {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 12px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 240px;
+    height: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    animation: popup 0.3s ease-out forwards;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 📷 图片容器样式 */
+.about-container .image-block {
+    margin: 2rem 0;
+    text-align: center;
+    max-width: 500px; // 控制整体最大宽度
+}
+
+.about-container .image-block img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container .image-block img:hover {
+    transform: scale(1.015);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* 📝 可选标题（可省略） */
+.about-container .image-caption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: #888;
+    font-style: italic;
+    letter-spacing: 0.03em;
+}
+
+/* 暗模式适配 */
+.dark .about-container .image-caption {
+    color: #ccc;
+}
+
+.highlight {
+    position: relative;
+    color: #f9a8d4;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    /* 方便定位 */
+}
+
+.highlight .tech-icon {
+    position: absolute;
+    left: 50%;
+    bottom: 120%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    background: white;
+    color: #ec4899;
+    border-radius: 6px;
+    padding: 4px 6px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    user-select: none;
+    z-index: 100;
+}
+
+.highlight:hover .tech-icon {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.about-container ul,
+.about-container ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    letter-spacing: 0.03em;
+    word-spacing: 0.08em;
+}
+
+.about-container ul li::marker {
+    color: #f472b6; // 粉色圆点
+}
+
+.about-container ol {
+    list-style-type: decimal;
+}
+
+.about-container li {
+    margin-bottom: 0.6rem;
+}
+
+
+.about-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+    font-family: 'Libre Baskerville', serif;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.1);
+}
+
+.about-container th,
+.about-container td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #fce7f3;
+}
+
+.about-container th {
+    background-color: #fbcfe8;
+    color: #831843;
+    font-weight: bold;
+}
+
+.about-container tr:last-child td {
+    border-bottom: none;
+}
+
+.dark .about-container table {
+    background-color: #2d2d2d;
+    color: #ddd;
+}
+
+.dark .about-container th {
+    background-color: #ec4899;
+    color: #fff;
+}
+
+.dark .about-container td {
+    border-color: #444;
+}
+
+/* === 表格 Hover 效果 === */
+.about-container table tbody tr:hover {
+    background-color: #fdf2f8;
+    transition: background-color 0.3s ease;
+}
+
+.dark .about-container table tbody tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* === 表格响应式滚动容器 === */
+.about-container .table-scroll {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.about-container .table-scroll table {
+    min-width: 600px;
+}
+
+/* === 列表图标样式 === */
+.about-container ul li::before {
+    content: "✔";
+    color: #ec4899;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.2rem;
+    margin-left: -1.2rem;
+}
+
+.about-container ol li::marker {
+    color: #ec4899;
+}
+
+/* 深色模式下列表图标颜色 */
+.dark .about-container ul li::before {
+    color: #f9a8d4;
+}
+
+
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 0 1rem;
+    }
+
+    .coords {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .coords .map-popup {
+        left: auto;
+        right: 0;
+        top: -180px;
+        margin-left: 0;
+        transform: translateX(-10%);
+    }
+}

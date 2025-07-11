@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutContent from "../components/AboutContent.jsx";
+import SocialIcon from "../components/SocialIcons.jsx";
+import "../styles/about.scss";
+
+const title = "芳踪浅影";
 ---
 
 <html lang="en">
@@ -7,11 +12,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Document</title>
+    <title>{title}</title>
   </head>
-  <body> 
-    <BaseLayout>
-    
-    </BaseLayout>
+  <body>
+    <BaseLayout />
+
+    <AboutContent />
+
+    <SocialIcon />
   </body>
 </html>

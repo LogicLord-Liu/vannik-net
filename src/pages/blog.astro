@@ -16,7 +16,7 @@ const posts = Object.values(modules)
   .sort((a, b) => b.dateObj - a.dateObj);
 ---
 
-<BaseLayout title="博客列表">
+<BaseLayout title="墨韵流年">
   <section class="blog-list">
     {posts.map((post) => <BlogCard post={post} />)}
   </section>

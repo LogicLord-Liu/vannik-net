@@ -61,27 +61,53 @@ const {
       });
     </script>
     <script>
-      // 复制按钮逻辑
       document.addEventListener("DOMContentLoaded", () => {
         const blocks = document.querySelectorAll("pre");
 
         blocks.forEach((block) => {
-          const button = document.createElement("button");
-          button.className = "copy-btn";
-          button.innerText = "📋 Copy";
+          const wrapper = document.createElement("div");
+          wrapper.className = "code-block-wrapper";
 
-          button.addEventListener("click", async () => {
-            const code = block.innerText;
+          // 插入 DOM
+          block.parentNode.insertBefore(wrapper, block);
+          wrapper.appendChild(block);
+
+          // 复制按钮
+          const copyBtn = document.createElement("button");
+          copyBtn.className = "copy-btn";
+          copyBtn.innerText = "📋 Copy";
+          copyBtn.addEventListener("click", async () => {
             try {
-              await navigator.clipboard.writeText(code);
-              button.innerText = "✅ Copied !";
-              setTimeout(() => (button.innerText = "📋 Copy"), 2000);
-            } catch (err) {
-              button.innerText = "❌ Error";
+              await navigator.clipboard.writeText(block.innerText);
+              copyBtn.innerText = "✅ Copied!";
+              setTimeout(() => (copyBtn.innerText = "📋 Copy"), 2000);
+            } catch {
+              copyBtn.innerText = "❌ Error";
             }
           });
 
-          block.appendChild(button);
+          // 折叠按钮
+          const toggleBtn = document.createElement("button");
+          toggleBtn.className = "toggle-btn";
+          // 初始状态假设是展开状态，显示向上箭头（▲）
+          toggleBtn.innerText = "▲ 折叠";
+
+          toggleBtn.addEventListener("click", () => {
+            block.classList.toggle("collapsed");
+
+            // 判断是否折叠
+            const isCollapsed = block.classList.contains("collapsed");
+
+            // 折叠了显示向下箭头，展开了显示向上箭头
+            if (isCollapsed) {
+              toggleBtn.innerText = "▼ 展开";
+            } else {
+              toggleBtn.innerText = "▲ 折叠";
+            }
+          });
+
+          wrapper.appendChild(copyBtn);
+          wrapper.appendChild(toggleBtn);
         });
       });
     </script>
