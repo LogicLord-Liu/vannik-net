@@ -18,7 +18,7 @@ export default function BlogCard({ post }) {
                 </div>
                 <div className={styles.tags}>
                     {post.tags?.map(tag => (
-                        <span key={tag} className={styles.tag}>#{tag}</span>
+                        <span key={tag} className={styles.tag}> #{tag}</span>
                     ))}
                 </div>
             </div>

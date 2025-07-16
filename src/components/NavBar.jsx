@@ -37,6 +37,7 @@ export default function NavBar() {
         <div className={`${styles.menu} ${menuOpen ? styles.menuOpen : ''}`}>
           <a href="/" className={styles.menuItem}>Home</a>
           <a href="/blog" className={styles.menuItem}>Blog</a>
+          <a href='/ta' className={styles.menuItem}>「致 TA」</a>
           <a href="/about" className={styles.menuItem}>About</a>
           <a href="/contact" className={styles.menuItem}>Contact</a>
         </div>
@@ -57,6 +58,7 @@ export default function NavBar() {
           <div className={styles.slideMenu}>
             <a href="/" onClick={toggleMenu}>Home</a>
             <a href="/blog" onClick={toggleMenu}>Blog</a>
+            <a href='/ta' className={styles.menuItem}>「致 TA」</a>
             <a href="/about" onClick={toggleMenu}>About</a>
             <a href="/contact" onClick={toggleMenu}>Contact</a>
             <div className={styles.mobileActions}>
