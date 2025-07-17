@@ -1,5 +1,6 @@
 ---
 import "../styles/markdown.scss";
+import ScrollToTop from "../components/ScrollToTop";
 
 const {
   frontmatter: { title, date, author = "佚名", cover, tags = [], readingTime },
@@ -12,6 +13,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <article class="post-container">
@@ -111,5 +116,7 @@ const {
         });
       });
     </script>
+
+    <ScrollToTop client:load />
   </body>
 </html>

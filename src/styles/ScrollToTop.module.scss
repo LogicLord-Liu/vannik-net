@@ -1,3 +1,5 @@
+// styles/ScrollToTop.module.scss
+
 .scrollButton {
     position: fixed;
     bottom: 2rem;
@@ -15,23 +17,20 @@
     transition: background-color 0.3s, transform 0.3s, opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(20px); // 初始往下偏移
+    transform: translateY(20px);
 }
 
-/* 显示时 */
 .visible {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
 }
 
-/* 悬停 */
 .scrollButton:hover {
     background-color: #f472b6;
     transform: translateY(-2px);
 }
 
-/* 暗模式 */
 .dark .scrollButton {
     background-color: #ec4899;
 

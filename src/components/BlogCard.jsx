@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './BlogCard.module.scss';
+import ScrollToTop from './ScrollToTop';
 import { formatDate } from '../utils/formatDate';
 
 export default function BlogCard({ post }) {
@@ -23,6 +24,5 @@ export default function BlogCard({ post }) {
                 </div>
             </div>
         </a>
-
     );
 }

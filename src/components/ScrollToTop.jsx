@@ -1,5 +1,6 @@
+// components/ScrollToTop.jsx
 import React, { useEffect, useState } from 'react';
-import styles from '../styles/ScrollToTop.module.scss';
+import styles from '../styles/ScrollToTop.module.scss'; // 确保是 .module.scss
 
 export default function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +22,7 @@ export default function ScrollToTop() {
         <button
             className={`${styles.scrollButton} ${isVisible ? styles.visible : ''}`}
             onClick={scrollToTop}
-            aria-label="Top"
+            aria-label="Scroll to top"
         >
             <i className="fas fa-chevron-up"></i>
         </button>
