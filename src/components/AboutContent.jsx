@@ -23,7 +23,7 @@ export default function AboutContent() {
             <h2 className="fade-in">职业背景 · 技术成长</h2>
 
             <p className="fade-in">
-                余乃大学三年级生，习软件工程业。心怀高远，欲以勤学备考研，志在<span className="highlight">
+                余乃大学三年级生，习软件工程业，主<span className="highlight">CSharp</span>方向。心怀高远，欲以勤学备考研，志在<span className="highlight">
                     上海交通大学
                     <img src="/SJTU.svg" className="tech-icon" aria-hidden="true"></img>
                 </span>软件工程专业深造。{" "}
@@ -177,7 +177,7 @@ export default function AboutContent() {
 
 
             <div className="image-block fade-in">
-                <img src="/public/logo.jpg" alt="这是我的照片" />
+                <img src="/public/logo.jpg" alt="这是我的照片" loading="lazy" />
                 <div className="image-caption">工作中的我，在参与某项目</div>
             </div>
 
